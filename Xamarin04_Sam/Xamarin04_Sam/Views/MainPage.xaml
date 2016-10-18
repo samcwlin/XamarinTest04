@@ -8,5 +8,7 @@
   <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
     <Label Text="{Binding Title}" />
 		<Button Text= "顯示New1Page" Command="{Binding 顯示New1PageCommand}"></Button>
+		<Button Text ="你是誰" Command="{Binding 你是誰Command}"></Button>
+		<Label Text="{Binding 你是誰Label}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
   </StackLayout>
 </ContentPage>

@@ -16,14 +16,39 @@ namespace Xamarin04_Sam.ViewModels
 			set { SetProperty(ref _title, value); }
 		}
 
+
+		#region 你是誰Label
+		private string _你是誰Label;
+		/// <summary>
+		/// PropertyDescription
+		/// </summary>
+		public string 你是誰Label
+		{
+			get { return this._你是誰Label; }
+			set { this.SetProperty(ref this._你是誰Label, value); }
+		}
+		#endregion
+
+
 		public DelegateCommand 顯示New1PageCommand { get; private set; }
+
+		public DelegateCommand 你是誰Command { get; private set; } 
 
 		private readonly INavigationService _navigationService;
 
-		public MainPageViewModel(INavigationService navigationService)
+		public IWhoAreYou _IWhoAreYou;
+
+		public MainPageViewModel(INavigationService navigationService, IWhoAreYou iWhoAreYou)
 		{
+			_IWhoAreYou = iWhoAreYou;
 			_navigationService = navigationService;
 			顯示New1PageCommand = new DelegateCommand(顯示New1Page);
+			你是誰Command = new DelegateCommand(你是誰);
+		}
+
+		private void 你是誰()
+		{
+			你是誰Label = _IWhoAreYou.Hello();
 		}
 
 		private async void 顯示New1Page()
